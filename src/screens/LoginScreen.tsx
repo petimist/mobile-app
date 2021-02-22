@@ -64,6 +64,11 @@ const LoginScreen = ({ navigation }: Props) => {
         autoCompleteType="email"
         textContentType="emailAddress"
         keyboardType="email-address"
+        theme={{
+          colors: {
+            primary:'red',
+          }
+        }}
       />
 
       <TextInput
@@ -74,6 +79,11 @@ const LoginScreen = ({ navigation }: Props) => {
         error={!!password.error}
         errorText={password.error}
         secureTextEntry
+        theme={{
+          colors: {
+            primary:'red',
+          }
+        }}
       />
 
       <Button mode="contained" color='#FF69B4' onPress={_onLoginPressed}>

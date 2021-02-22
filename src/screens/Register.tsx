@@ -26,6 +26,11 @@ const RegisterScreen = ({ navigation }: Props) => {
                 autoCapitalize="sentences"
                 textContentType="username"
                 placeholder="Insert your username!"
+                theme={{
+                    colors: {
+                        primary:'red',
+                    }
+                }}
             />
 
             <TextInput
@@ -36,6 +41,11 @@ const RegisterScreen = ({ navigation }: Props) => {
                 textContentType="emailAddress"
                 keyboardType="email-address"
                 placeholder="Insert your email address!"
+                theme={{
+                    colors: {
+                        primary:'red',
+                    }
+                }}
             />
 
             <TextInput
@@ -43,6 +53,11 @@ const RegisterScreen = ({ navigation }: Props) => {
                 returnKeyType="done"
                 placeholder="Insert your password!"
                 secureTextEntry
+                theme={{
+                    colors: {
+                        primary:'red',
+                    }
+                }}
             />
 
             <TextInput
@@ -50,6 +65,11 @@ const RegisterScreen = ({ navigation }: Props) => {
                 returnKeyType="done"
                 placeholder="Insert your password!"
                 secureTextEntry
+                theme={{
+                    colors: {
+                        primary:'red',
+                    }
+                }}
             />
 
             <Button mode="contained" color='#FF69B4' onPress={() => navigation.navigate('LoginScreen')}>
