@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
-import Logo from '../components/Logo';
 import Header from '../components/Header';
-import Paragraph from '../components/Paragraph';
 import Button from '../components/Button';
 import { Navigation } from '../types';
 import Background from '../components/Background';
+import {StyleSheet, Text, View} from 'react-native';
+import { Calculator } from 'react-native-calculator';
 
 type Props = {
   navigation: Navigation;
@@ -12,13 +12,10 @@ type Props = {
 
 const Dashboard = ({ navigation }: Props) => (
   <Background>
-    <Logo />
-    <Header>Let’s start</Header>
-    <Paragraph>
-      Your amazing app starts here. Open you favourite code editor and start
-      editing this project. HELLO BORS
-    </Paragraph>
-    <Button mode="outlined" onPress={() => navigation.navigate('LoginScreen')}>
+      <View style={{ flex: 1, flexDirection: 'row' }}>
+          <Calculator style={{ flex: 1, flexDirection: 'row' }} />
+      </View>
+    <Button mode="contained" color='#FF69B4' onPress={() => navigation.navigate('LoginScreen')}>
       Logout
     </Button>
   </Background>
