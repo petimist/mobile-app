@@ -8,6 +8,8 @@ import TextInput from '../components/TextInput';
 import { theme } from '../core/theme';
 import { emailValidator, passwordValidator } from '../core/utils';
 import { Navigation } from '../types';
+import { signIn } from '../services/auth.js';
+import { Alert } from "react-native";
 
 type Props = {
   navigation: Navigation;
@@ -17,7 +19,7 @@ const LoginScreen = ({ navigation }: Props) => {
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
 
-  const _onLoginPressed = () => {
+  const _onLoginPressed = async () => {
     const emailError = emailValidator(email.value);
     const passwordError = passwordValidator(password.value);
 
@@ -26,8 +28,19 @@ const LoginScreen = ({ navigation }: Props) => {
       setPassword({ ...password, error: passwordError });
       return;
     }
+    if (email.value && password.value) {
+      await signIn(email.value, password.value).then((res) => {
+        if (res === 'auth/user-not-found') {
+          Alert.alert("Email not found, please register.");
+          // console.log("Email not found, please register.");
+        } else {
+          // console.log(JSON.parse(res));
+          navigation.navigate('Dashboard');
+        }
+      })
+    }
 
-    navigation.navigate('Dashboard');
+
   };
 
   const _onRegisterPressed = () => {
