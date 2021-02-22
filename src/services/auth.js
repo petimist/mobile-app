@@ -4,9 +4,21 @@ import { Alert } from "react-native";
 
 export async function registration(email, password, lastName, firstName) {
   try {
-    await firebase.auth().createUserWithEmailAndPassword(email, password);
+    const response = await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((user) => {
+        console.log(user.user.uid);
+        if (user) {
+          Alert.alert("Registered as", user.user.uid);
+          return user.user.uid;
+        }
+        // Alert.alert(user);
+      });
+    return response;
   } catch (err) {
     Alert.alert("There is something wrong!!!!", err.message);
+    return err.code;
   }
 }
 
@@ -22,14 +34,12 @@ export async function signIn(email, password) {
           return user.user.uid;
         }
         Alert.alert(user);
-
       });
     return response;
   } catch (err) {
     Alert.alert("There is something wrong!", err.message);
     return err.code;
-    console.log(err)
-
+    console.log(err);
   }
 }
 

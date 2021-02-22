@@ -31,9 +31,12 @@ const LoginScreen = ({ navigation }: Props) => {
     if (email.value && password.value) {
       await signIn(email.value, password.value).then((res) => {
         if (res === 'auth/user-not-found') {
-          Alert.alert("Email not found, please register.");
+          Alert.alert("Email not found, please register!");
           // console.log("Email not found, please register.");
-        } else {
+        } else if (res === 'auth/wrong-password'){
+          Alert.alert("Password is wrong!");
+        }
+        else {
           // console.log(JSON.parse(res));
           navigation.navigate('Dashboard');
         }
