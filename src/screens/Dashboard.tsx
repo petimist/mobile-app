@@ -19,6 +19,9 @@ const Dashboard = ({ navigation }: Props) => {
 
   return (
     <Background>
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+            <Calculator style={{ flex: 1, flexDirection: 'row' }} />
+        </View>
       <Button mode="outlined" onPress={() => {
         loggingOut().then(() => {
           navigation.navigate('LoginScreen')
