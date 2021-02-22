@@ -43,11 +43,15 @@ const LoginScreen = ({ navigation }: Props) => {
 
   };
 
+  const _onRegisterPressed = () => {
+    navigation.navigate('Register')
+  };
+
   return (
     <Background>
       <Logo />
 
-      <Header>Welcome</Header>
+      <Text style={{ fontWeight: 'bold',color: 'hotpink', fontSize: 25}}>Welcome!</Text>
 
       <TextInput
         label="Email"
@@ -72,8 +76,12 @@ const LoginScreen = ({ navigation }: Props) => {
         secureTextEntry
       />
 
-      <Button mode="contained" onPress={_onLoginPressed}>
+      <Button mode="contained" color='#FF69B4' onPress={_onLoginPressed}>
         Login
+      </Button>
+
+      <Button mode="contained" color='#FF69B4' onPress={_onRegisterPressed}>
+        Register
       </Button>
     </Background>
   );
