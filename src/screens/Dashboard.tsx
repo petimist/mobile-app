@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
-import Logo from '../components/Logo';
 import Header from '../components/Header';
-import Paragraph from '../components/Paragraph';
 import Button from '../components/Button';
 import { Navigation } from '../types';
 import Background from '../components/Background';
+import {StyleSheet, Text, View} from 'react-native';
+import { Calculator } from 'react-native-calculator';
 import { loggingOut } from '../services/auth.js';
 // import { loggingOut, currentUser } from '../services/auth.js';
 import { Alert } from "react-native";
@@ -19,12 +19,6 @@ const Dashboard = ({ navigation }: Props) => {
 
   return (
     <Background>
-      <Logo />
-      <Header>Let’s start</Header>
-      <Paragraph>
-        Your amazing app starts here. Open you favourite code editor and start
-        editing this project.
-    </Paragraph>
       <Button mode="outlined" onPress={() => {
         loggingOut().then(() => {
           navigation.navigate('LoginScreen')
@@ -40,7 +34,5 @@ const Dashboard = ({ navigation }: Props) => {
     </Background>
   )
 };
-
-
 
 export default memo(Dashboard);
