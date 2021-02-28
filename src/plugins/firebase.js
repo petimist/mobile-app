@@ -1,21 +1,26 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
-// Optionally import the services that you want to use
-import "firebase/auth";
-//import "firebase/database";
-//import "firebase/firestore";
-//import "firebase/functions";
-//import "firebase/storage";
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-// Initialize Firebase
+// Use dot env later
 const firebaseConfig = {
-  apiKey: "AIzaSyDhhmA_E1Wt02djKagwZf11ks0m8Awu900",
-  authDomain: "simple-calculator-444.firebaseapp.com",
-  projectId: "simple-calculator-444",
-  storageBucket: "simple-calculator-444.appspot.com",
-  messagingSenderId: "159675184226",
-  appId: "1:159675184226:web:675a20ade9e81f419c0d3b",
-  measurementId: "G-494SQLD6W4"
+    apiKey: process.env.APIKEY,
+    authDomain: process.env.AUTHDOMAIN,
+    projectId: process.env.PROJECTID,
+    storageBucket: process.env.STORAGEBUCKET,
+    messagingSenderId: process.env.MESSAGINGSENDERID,
+    appId: process.env.APPID,
+    measurementId: process.env.MEASUREMENTID
 };
+// Initialize Firebase
 
 firebase.initializeApp(firebaseConfig);
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+firebase.getCurrentUser = () => new Promise((resolve, reject) => {
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    unsubscribe();
+    resolve(user);
+  }, reject);
+});
