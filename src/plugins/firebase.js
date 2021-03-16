@@ -6,16 +6,17 @@ import "firebase/auth";
 //import "firebase/firestore";
 //import "firebase/functions";
 //import "firebase/storage";
+require('dotenv').config();
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyDhhmA_E1Wt02djKagwZf11ks0m8Awu900",
-  authDomain: "simple-calculator-444.firebaseapp.com",
-  projectId: "simple-calculator-444",
-  storageBucket: "simple-calculator-444.appspot.com",
-  messagingSenderId: "159675184226",
-  appId: "1:159675184226:web:675a20ade9e81f419c0d3b",
-  measurementId: "G-494SQLD6W4"
+  apiKey: process.env.VUE_APP_APIKEY,
+  authDomain: process.env.VUE_APP_AUTHDOMAIN,
+  projectId: process.env.VUE_APP_PROJECTID,
+  storageBucket: process.env.VUE_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.VUE_APP_MESSAGINGSENDERID,
+  appId: process.env.VUE_APP_APPID,
+  measurementId: process.env.VUE_APP_MEASUREMENTID,
 };
 
 firebase.initializeApp(firebaseConfig);
