@@ -107,9 +107,9 @@ dist
 #Firebase SDK
 # config/keys.js 
 
-.idea
+.idea/
 
-.expo
+.expo/
 
 # OSX
 #
