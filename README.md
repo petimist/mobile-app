@@ -1,39 +1,86 @@
-# Petimist - Mobile app
+<div align="center">
+  <img src="documentation/rnsk-logo.jpg" alt="React Native Expo Starter Kit" width="400" />
+  <p></p>
+  <h1>React Native (Expo) App</h1>
+  <p></p>
+  <a href="https://expo.io/@mcnamee/react-native-starter-kit"><img src="documentation/expo-demo.jpg" alt="React Native Expo Demo" height="50" /></a>
+  <p></p>
+  <sup>
+    <a href="https://github.com/mcnamee/react-native-expo-starter-kit/actions">
+      <img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fmcnamee%2Freact-native-expo-starter-kit%2Fbadge%3Fref%3Dmaster&style=flat" alt="builds" />
+    </a>
+    <a href="/LICENSE">
+      <img src="https://img.shields.io/github/license/mcnamee/react-native-expo-starter-kit?style=flat-square" alt="license" />
+    </a>
+  </sup>
+  <br />
+  <p align="center">
+    <a href="#-intro"><b>What is this?</b></a>
+    &nbsp;&nbsp;&mdash;&nbsp;&nbsp;
+    <a href="#-getting-started"><b>Usage</b></a>
+    &nbsp;&nbsp;&mdash;&nbsp;&nbsp;
+    <a href="#-docs"><b>Docs</b></a>
+    &nbsp;&nbsp;&mdash;&nbsp;&nbsp;
+    <a href="#-further-help"><b>Need help?</b></a>
+  </p>
+  <br />
+</div>
 
-# Expo CLI
+---
 
-If you have problems with the code in this repository, please file issues & bug reports
-at https://github.com/expo/expo-cli. Thanks!
+### Looking for something else?
 
-## Installation
+- [React Native Starter Kit (without Expo) / Boilerplate](https://github.com/mcnamee/react-native-starter-kit)
+- [React Starter Kit (web) / Boilerplate](https://github.com/mcnamee/react-starter-kit)
+- [Previous Version (React Starter Kit (Web + Native) w/ Firebase)](https://github.com/mcnamee/react-native-starter-kit/tree/archive/v3)
 
-[Installation instructions and documentation here.](https://docs.expo.io/workflow/expo-cli/#installation)
+---
 
-## Getting Started
+## 👋 Intro
 
-To make a new project use `expo init [path]`. The path is optional and it will use the current directory if not specified (all commands that need a path behave similarly).
+This project was bootstrapped with the [React Boilerplate Builder](https://github.com/mcnamee/react-native-boilerplate-builder) by [Matt McNamee](https://mcnam.ee).
 
-## Viewing a Project on Your Phone
+The project is _super_ helpful to kick-start your next project, as it provides a lot of the common tools you may reach for, all ready to go. Specifically:
 
-To view a project you must have an Expo CLI server running for that project. Run `expo start [path]` to start running the server. Once it is ready it'll output a URL for your project.
+- __[Expo](https://expo.io/)__ - The fastest way to build an app
+- __Flux architecture__
+    - [Redux](https://redux.js.org/docs/introduction/)
+    - Redux Wrapper: [Rematch](https://github.com/rematch/rematch)
+- __Routing and navigation__
+    - [React Native Router Flux](https://github.com/aksonov/react-native-router-flux)
+- __Data Caching / Offline__
+    - [Redux Persist](https://github.com/rt2zz/redux-persist)
+- __UI Toolkit/s__
+    - [Native Base](https://nativebase.io/)
+- __Code Linting__ with
+    - [Airbnb's JS Linting](https://github.com/airbnb/javascript) guidelines
 
-The server will continue running until you close it.
+---
 
-To view this on your phone, do the following:
+## 🚀 Getting Started
 
-- Go get the Expo app on your Android or iOS device. It's available [on the Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent) and [on the iOS App Store](https://itunes.com/apps/exponent).
+ - Install `eslint`, `prettier` and `editor config` plugins into your IDE
+ - Ensure your machine has the Expo CLI Installed (`npm install -g expo-cli`)
 
-- Run `expo send` to send a link via email. You can also use the `--send-to` option when running `expo start`.
+```bash
+# Install dependencies
+yarn install
 
-- Check your e-mail and tap the link. The Expo app should open and you should be able to view your experience there!
+# Start the App
+# - The Expo CLI will provide options to open in [web, android or iOS]
+yarn start
+```
 
-## Publishing a Project
+---
 
-To publish something you've made, just follow these steps:
+## 📖 Docs
 
-- Create an Expo account or login to an existing one by running `expo login`.
-- Run an Expo CLI server using `expo start`.
-- Check to make sure you can load your app by opening it in the Expo app.
-- Once everything looks good, run `expo publish`. A few seconds later, you should get a clean URL sent to you that points to the exp.host server where your package was published to.
+- [Contributing to this project](documentation/contributing.md)
+- [Tests & testing](documentation/testing.md)
+- [Understanding the file structure](documentation/file-structure.md)
 
-You can publish as many times as you want and it will replace your old version, so don't worry about making a mistake!
+---
+
+## 👊 Further Help?
+
+This repo is a great place to start. But...if you'd prefer to sit back and have your new project built for you or just need some consultation, [get in touch with me directly](https://mcnam.ee) and I can organise a quote.
