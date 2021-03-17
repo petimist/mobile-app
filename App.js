@@ -1,13 +1,9 @@
 import React from 'react';
-import { Provider } from 'react-native-paper';
-import App from './src';
-import { theme } from './src/core/theme';
-import firebase from './src/plugins/firebase'
+import Root from './src/index';
+import configureStore from './src/store/index';
 
-const Main = () => (
-  <Provider theme={theme}>
-    <App />
-  </Provider>
-);
+const { persistor, store } = configureStore();
 
-export default Main;
+export default function App() {
+  return <Root store={store} persistor={persistor} />;
+}
