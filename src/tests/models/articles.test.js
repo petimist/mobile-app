@@ -142,14 +142,14 @@ it('Articles Model Save returns correctly', () => {
           total: 2,
         },
         pagination: [
-          { title: 1, link: '/articles/' },
-          { title: 2, link: '/articles/2' },
+          { title: 1, link: "/articles/" },
+          { title: 2, link: "/articles/2" },
         ],
         listPaginated: {
           1: [mockOutput],
         },
       },
-      'hello@hello.com'
+      "hello@hello.com"
     )
   ).toMatchObject({
     meta: {
@@ -157,12 +157,12 @@ it('Articles Model Save returns correctly', () => {
       total: 2,
     },
     pagination: [
-      { title: 1, link: '/articles/' },
-      { title: 2, link: '/articles/2' },
+      { title: 1, link: "/articles/" },
+      { title: 2, link: "/articles/2" },
     ],
     listPaginated: {
       1: [mockOutput],
     },
-    userInput: 'hello@hello.com',
+    userInput: "hello@hello.com",
   });
 });
