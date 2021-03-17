@@ -14,10 +14,19 @@ import pagination from '../lib/pagination';
  */
 const transform = (item) => ({
   id: item.id || 0,
-  name: item.title && item.title.rendered ? ucfirst(stripHtml(item.title.rendered)) : '',
-  content: item.content && item.content.rendered ? stripHtml(item.content.rendered) : '',
+  name:
+    item.title && item.title.rendered
+      ? ucfirst(stripHtml(item.title.rendered))
+      : '',
+  content:
+    item.content && item.content.rendered
+      ? stripHtml(item.content.rendered)
+      : '',
   contentRaw: item.content && item.content.rendered,
-  excerpt: item.excerpt && item.excerpt.rendered ? stripHtml(item.excerpt.rendered) : '',
+  excerpt:
+    item.excerpt && item.excerpt.rendered
+      ? stripHtml(item.excerpt.rendered)
+      : '',
   date: moment(item.date).format(Config.dateFormat) || '',
   slug: item.slug || null,
   link: item.link || null,
@@ -48,7 +57,10 @@ export default {
 
       // Only sync when it's been 5mins since last sync
       if (lastSync[page]) {
-        if (!forceSync && moment().isBefore(moment(lastSync[page]).add(5, 'minutes'))) {
+        if (
+          !forceSync
+          && moment().isBefore(moment(lastSync[page]).add(5, 'minutes'))
+        ) {
           return true;
         }
       }
@@ -59,7 +71,9 @@ export default {
       }
 
       try {
-        const response = await Api.get(`/v2/posts?per_page=4&page=${page}&orderby=modified&_embed`);
+        const response = await Api.get(
+          `/v2/posts?per_page=4&page=${page}&orderby=modified&_embed`
+        );
         const { data, headers } = response;
 
         return !data || data.length < 1
@@ -128,17 +142,22 @@ export default {
       }
 
       // Create our paginated and flat lists
-      const listPaginated = page === 1 ? { [page]: newList } : { ...state.listPaginated, [page]: newList };
-      const listFlat = Object.keys(listPaginated).map((k) => listPaginated[k]).flat() || [];
+      const listPaginated = page === 1
+        ? { [page]: newList }
+        : { ...state.listPaginated, [page]: newList };
+      const listFlat = Object.keys(listPaginated)
+        .map((k) => listPaginated[k])
+        .flat() || [];
 
       return newList
         ? {
           ...state,
           listPaginated,
           listFlat,
-          lastSync: page === 1
-            ? { [page]: moment().format() }
-            : { ...state.lastSync, [page]: moment().format() },
+          lastSync:
+              page === 1
+                ? { [page]: moment().format() }
+                : { ...state.lastSync, [page]: moment().format() },
           meta: {
             page,
             lastPage: parseInt(headers['x-wp-totalpages'], 10) || null,

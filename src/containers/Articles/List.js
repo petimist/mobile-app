@@ -39,7 +39,8 @@ class ArticlesListContainer extends Component {
     const { fetchData } = this.props;
 
     let { page } = this.state;
-    page = incrementPage ? page + 1 : page; // Force fetch the next page worth of data when requested
+    page = incrementPage ? page + 1 : page;
+    // Force fetch the next page worth of data when requested
     page = forceSync ? 1 : page; // Start from scratch
 
     this.setState({ loading: true, error: null, page });

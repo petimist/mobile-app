@@ -9,6 +9,7 @@ const Messages = ({ message, type }) => (
   <View
     style={{
       backgroundColor:
+        // eslint-disable-next-line no-nested-ternary
         type === 'error' ? Colors.brandDanger : type === 'success' ? Colors.brandSuccess : Colors.brandInfo,
       paddingVertical: 10,
       paddingHorizontal: 5,

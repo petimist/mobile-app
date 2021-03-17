@@ -67,7 +67,7 @@ const ArticlesList = ({
         keyExtractor={(item) => `${item.id}-${item.name}`}
         ListFooterComponent={(meta && meta.page && meta.lastPage && meta.page < meta.lastPage)
           ? () => (
-            <React.Fragment>
+            <>
               <Spacer size={20} />
               <Button
                 block
@@ -76,7 +76,7 @@ const ArticlesList = ({
               >
                 <Text>Load More</Text>
               </Button>
-            </React.Fragment>
+            </>
           ) : null}
       />
 

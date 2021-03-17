@@ -12,6 +12,10 @@ import theme from '../native-base-theme/variables/commonColor';
 import Routes from './routes/index';
 import Loading from './components/UI/Loading';
 
+const RobotoFonts = require('native-base/Fonts/Roboto.ttf');
+const RobotoMediumFonts = require('native-base/Fonts/Roboto_medium.ttf');
+const IoniconsFonts = require('@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.ttf');
+
 class App extends React.Component {
   constructor() {
     super();
@@ -20,9 +24,9 @@ class App extends React.Component {
 
   async componentDidMount() {
     await Font.loadAsync({
-      Roboto: require('native-base/Fonts/Roboto.ttf'),
-      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
-      Ionicons: require('@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.ttf'),
+      Roboto: RobotoFonts,
+      Roboto_medium: RobotoMediumFonts,
+      Ionicons: IoniconsFonts,
     });
 
     this.setState({ loading: false });

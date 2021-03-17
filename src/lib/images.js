@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /**
  * Sort through the mass amounts of data in
  * an endpoint and return the featured image URL

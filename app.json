@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ReactNativeExpoStarterKit",
-    "slug": "ReactNativeExpoStarterKit",
+    "name": "Petimist",
+    "slug": "Petimist",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

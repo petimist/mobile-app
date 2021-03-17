@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Scene, Tabs, Stack } from 'react-native-router-flux';
 import { Icon } from 'native-base';
