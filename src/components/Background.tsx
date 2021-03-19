@@ -17,7 +17,7 @@ const Background = ({ children }: Props) => (
     </KeyboardAvoidingView>
   </View>
 );
-// abc
+
 const styles = StyleSheet.create({
   background: {
     flex: 1,
