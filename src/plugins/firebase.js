@@ -1,17 +1,20 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-require('dotenv').config();
+// require('dotenv').config();
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: process.env.APIKEY,
-  authDomain: process.env.AUTHDOMAIN,
-  projectId: process.env.PROJECTID,
-  storageBucket: process.env.STORAGEBUCKET,
-  messagingSenderId: process.env.MESSAGINGSENDERID,
-  appId: process.env.APPID,
-  measurementId: process.env.MEASUREMENTID,
+  apiKey: "AIzaSyCXn2U-MVtTL5HveA1c5OwjfXt3Wl3FdD0",
+  authDomain: "petimist-2021.firebaseapp.com",
+  projectId: "petimist-2021",
+  // apiKey: process.env.APIKEY,
+  // authDomain: process.env.AUTHDOMAIN,
+  // projectId: process.env.PROJECTID,
+  // storageBucket: process.env.STORAGEBUCKET,
+  // messagingSenderId: process.env.MESSAGINGSENDERID,
+  // appId: process.env.APPID,
+  // measurementId: process.env.MEASUREMENTID,
 };
 
 // Your web app's Firebase configuration

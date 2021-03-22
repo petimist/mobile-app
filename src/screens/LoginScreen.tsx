@@ -1,9 +1,6 @@
 import React, { memo, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import Button from '../components/Button';
+import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {Button as PaperButton, IconButton} from 'react-native-paper';
 import TextInput from '../components/TextInput';
 import { theme } from '../core/theme';
 import { emailValidator, passwordValidator } from '../core/utils';
@@ -14,6 +11,9 @@ import { Alert } from "react-native";
 type Props = {
   navigation: Navigation;
 };
+
+const image = { uri:"https://image.freepik.com/free-photo/abstract-blur-light-gradient-pink-soft-pastel-yellow-wallpaper-background_7636-1347.jpg" };
+
 
 const LoginScreen = ({ navigation }: Props) => {
   const [email, setEmail] = useState({ value: '', error: '' });
@@ -46,51 +46,189 @@ const LoginScreen = ({ navigation }: Props) => {
 
   };
 
-  const _onRegisterPressed = () => {
-    navigation.navigate('Register')
+  const toHomePressed = () => {
+    navigation.navigate('Homepage')
   };
 
   return (
-    <Background>
-      <Logo />
+      <View style={styles.container}>
+        <ImageBackground source={image} style={styles.image}>
+          <IconButton
+              icon={require('../assets/baseline_west_black_18dp.png')}
+              size={30}
+              style={{marginRight: 350}}
+              onPress={toHomePressed}
+          >
+          </IconButton>
+          <ImageBackground source={require("../assets/circle.png")} style={styles.image2}>
+            <Image
+                style={styles.image_logo}
+                source={{ uri: "https://media.tenor.com/images/b6816283f39bdc3b46c80a122a603456/tenor.gif"}}
+            >
+            </Image>
+          </ImageBackground>
 
-      <Text style={{ fontWeight: 'bold',color: 'hotpink', fontSize: 25}}>Welcome!</Text>
+            <TextInput
+              label="email"
+              returnKeyType="next"
+              value={email.value}
+              onChangeText={text => setEmail({ value: text, error: '' })}
+              error={!!email.error}
+              errorText={email.error}
+              autoCapitalize="none"
+              autoCompleteType="email"
+              textContentType="emailAddress"
+              keyboardType="email-address"
+            />
 
-      <TextInput
-        label="Email"
-        returnKeyType="next"
-        value={email.value}
-        onChangeText={text => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
-        autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
-      />
+            <TextInput
+              label="password"
+              returnKeyType="done"
+              value={password.value}
+              onChangeText={text => setPassword({ value: text, error: '' })}
+              error={!!password.error}
+              errorText={password.error}
+              secureTextEntry
+            />
 
-      <TextInput
-        label="Password"
-        returnKeyType="done"
-        value={password.value}
-        onChangeText={text => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
-        secureTextEntry
-      />
+          <PaperButton mode="contained" style={styles.btn_login} onPress={_onLoginPressed}>
+            <Text style={styles.text2}> Login </Text>
+          </PaperButton>
 
-      <Button mode="contained" color='#FF69B4' onPress={_onLoginPressed}>
-        Login
-      </Button>
+          <Text style={styles.text3}> ----------- or connected with ----------- </Text>
 
-      <Button mode="contained" color='#FF69B4' onPress={_onRegisterPressed}>
-        Register
-      </Button>
-    </Background>
+          <PaperButton mode="contained" style={styles.btn_facebook} onPress={_onLoginPressed}>
+            <Text style={styles.text_facebook}> Facebook </Text>
+          </PaperButton>
+
+          <PaperButton mode="contained" style={styles.btn_google} onPress={_onLoginPressed}>
+            <Text style={styles.text_blue}>G</Text>
+            <Text style={styles.text_red}>o</Text>
+            <Text style={styles.text_yellow}>o</Text>
+            <Text style={styles.text_blue}>g</Text>
+            <Text style={styles.text_green}>l</Text>
+            <Text style={styles.text_red}>e</Text>
+          </PaperButton>
+
+          <Image
+              style={styles.image_heart}
+              source={{uri: "https://diaryofsarita.files.wordpress.com/2015/01/01508-language2bseparator.png?w=1400"}}
+          ></Image>
+        </ImageBackground>
+
+      </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+  },
+
+  image_heart: {
+    width: 300,
+    height: 100,
+    marginLeft: 50,
+    marginRight: 50,
+    marginTop: 10,
+  },
+
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+    alignItems: 'center',
+  },
+
+  text: {
+    color: "black",
+    fontSize: 72,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+
+  text2:{
+    fontSize: 20,
+    color: "black",
+  },
+
+  text3:{
+    marginTop: 20,
+    fontSize: 15,
+    color: "black",
+  },
+
+  text_facebook:{
+    marginTop: 20,
+    fontSize: 18,
+    color: "white",
+  },
+
+  text_blue:{
+    marginTop: 20,
+    fontSize: 18,
+    color: "#4285f3",
+  },
+
+  text_red:{
+    marginTop: 20,
+    fontSize: 18,
+    color: "#ea4435",
+  },
+
+  text_yellow:{
+    marginTop: 20,
+    fontSize: 18,
+    color: "#fabd03",
+  },
+
+  text_green:{
+    marginTop: 20,
+    fontSize: 18,
+    color: "#33a852",
+  },
+
+  image_logo:{
+    width: 100,
+    height: 100,
+    marginLeft: 40,
+    marginTop: 30,
+  },
+
+  image2:{
+    width: 180,
+    height: 180,
+    marginTop: 10,
+  },
+
+  btn_login:{
+    width: 310,
+    height: 60,
+    borderRadius: 30,
+    marginTop: 20,
+    justifyContent: "center",
+    backgroundColor: "#FFD180",
+  },
+
+  btn_facebook:{
+    width: 310,
+    height: 60,
+    borderRadius: 30,
+    marginTop: 20,
+    justifyContent: "center",
+    backgroundColor: "#076fe6",
+  },
+
+  btn_google:{
+    width: 310,
+    height: 60,
+    borderRadius: 30,
+    marginTop: 20,
+    justifyContent: "center",
+    backgroundColor: "#ffffff",
+  },
+
   forgotPassword: {
     width: '100%',
     alignItems: 'flex-end',

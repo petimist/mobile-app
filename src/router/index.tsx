@@ -2,19 +2,21 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import {
+  Homepage,
   LoginScreen,
   Dashboard,
     Register,
-} from './screens';
+} from '../screens';
 
 const Router = createStackNavigator(
   {
+    Homepage,
     LoginScreen,
     Dashboard,
       Register,
   },
   {
-    initialRouteName: 'LoginScreen',
+    initialRouteName: 'Homepage',
     headerMode: 'none',
   }
 );
