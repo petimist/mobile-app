@@ -4,17 +4,20 @@ import { createStackNavigator } from 'react-navigation-stack';
 import {
   LoginScreen,
   Dashboard,
-    Register,
+  Register,
 } from './screens';
+
+import PetScreen from './screens/PetScreen'
 
 const Router = createStackNavigator(
   {
     LoginScreen,
     Dashboard,
-      Register,
+    Register,
+    PetScreen
   },
   {
-    initialRouteName: 'LoginScreen',
+    initialRouteName: 'Dashboard',
     headerMode: 'none',
   }
 );
