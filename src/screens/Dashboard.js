@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { Button } from 'react-native';
 import { StyleSheet, ScrollView, ActivityIndicator, View, Text, TextInput } from 'react-native'
-import {db} from '../plugins/firebase'
-
-// type Props = {
-//   navigation: Navigation;
-// };
+import { db } from '../plugins/firebase'
+import {currentUser} from '../services/auth'
 
 class Dashboard extends Component {
   constructor() {
 
     super();
+
+    this.userRef = db.collection("users").doc(currentUser().uid)
 
     this.state = {
       name: "",
@@ -30,7 +29,7 @@ class Dashboard extends Component {
       isLoading: true
     })
     // Add a new document with a generated id.
-    db.collection("TEST-PET").add({
+    this.userRef.collection('pets').add({
       name: this.state.name
     })
       .then((docRef) => {

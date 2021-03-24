@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-import { Button } from 'react-native';
 import { StyleSheet, ScrollView, ActivityIndicator, View, Text, TextInput } from 'react-native'
 import { db } from '../plugins/firebase'
+import { currentUser } from '../services/auth'
+
 
 class PetScreen extends Component {
   constructor() {
 
     super();
+
+    this.userRef = db.collection("users").doc(currentUser().uid)
 
     this.state = {
       isLoading: true,
@@ -22,7 +25,7 @@ class PetScreen extends Component {
   }
 
   componentDidMount() {
-    this.unsubscribe = db.collection('TEST-PET').onSnapshot(this.getCollection);
+    this.unsubscribe = this.userRef.collection('pets').onSnapshot(this.getCollection);
   }
 
   componentWillUnmount() {
@@ -57,20 +60,21 @@ class PetScreen extends Component {
     }
 
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
 
         { this.state.petArr.map((item, key) => (
-          <Text key={key} style={styles.TextStyle}> { item.name} </Text>)
+          <Text key={item.key}
+            onPress={() => this.props.navigation.navigate('PetInfoScreen', {id: item.key})}
+            style={styles.TextStyle}> { item.name}  </Text>)
         )}
-      </ScrollView>
+      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 35
+    flex: 1, justifyContent: "center", alignItems: "center"
   },
   preloader: {
     position: 'absolute',

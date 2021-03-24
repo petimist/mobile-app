@@ -8,16 +8,18 @@ import {
 } from './screens';
 
 import PetScreen from './screens/PetScreen'
+import PetInfoScreen from './screens/PetInfoScreen'
 
 const Router = createStackNavigator(
   {
     LoginScreen,
     Dashboard,
     Register,
-    PetScreen
+    PetScreen,
+    PetInfoScreen,
   },
   {
-    initialRouteName: 'Dashboard',
+    initialRouteName: 'LoginScreen',
     headerMode: 'none',
   }
 );
