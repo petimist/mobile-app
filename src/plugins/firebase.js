@@ -6,8 +6,8 @@ import 'firebase/firestore';
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCXn2U-MVtTL5HveA1c5OwjfXt3Wl3FdD0",
-  authDomain: "petimist-2021.firebaseapp.com",
-  projectId: "petimist-2021",
+    authDomain: "petimist-2021.firebaseapp.com",
+    projectId: "petimist-2021"
   // apiKey: process.env.APIKEY,
   // authDomain: process.env.AUTHDOMAIN,
   // projectId: process.env.PROJECTID,

@@ -22,17 +22,17 @@ const Homepage = ({ navigation }: Props) => {
     return (
         <View style={styles.container}>
             <ImageBackground source={image} style={styles.image}>
-            <ImageBackground source={require("../assets/circle.png")} style={styles.image2}>
-                <Image
-                    style={styles.image_logo}
-                    source={{ uri: "https://media.tenor.com/images/b6816283f39bdc3b46c80a122a603456/tenor.gif"}}
-                >
-                </Image>
-            </ImageBackground>
+                <ImageBackground source={require("../assets/circle.png")} style={styles.image2}>
+                    <Image
+                        style={styles.image_logo}
+                        source={{ uri: "https://media.tenor.com/images/b6816283f39bdc3b46c80a122a603456/tenor.gif"}}
+                    >
+                    </Image>
+                </ImageBackground>
                 <Text style={styles.text}>Petimist</Text>
                 <PaperButton mode="outlined" style={styles.btn_login } icon={require('../assets/round_login_black_18dp.png')} color="black" onPress={toLoginPressed}>
                     <Text style={{fontSize: 20}}> Login </Text>
-                 </PaperButton>
+                </PaperButton>
                 <PaperButton mode="outlined" style={styles.btn_register} icon={require('../assets/round_create_black_18dp.png')} color="black"  onPress={toRegisterPressed}>
                     <Text style={{fontSize: 20}}> Register </Text>
                 </PaperButton>

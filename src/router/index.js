@@ -1,22 +1,29 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import PetInfoScreen from "../screens/PetInfoScreen";
+
 import {
-  Homepage,
+    Homepage,
   LoginScreen,
-  Dashboard,
-    Register,
+  MyPet,
+  Register,
+    Dashboard,
+    Appointment,
 } from '../screens';
 
 const Router = createStackNavigator(
   {
-    Homepage,
+      Homepage,
     LoginScreen,
-    Dashboard,
-      Register,
+    MyPet,
+    Register,
+      Dashboard,
+      Appointment,
+      PetInfoScreen
   },
   {
-    initialRouteName: 'Homepage',
+    initialRouteName: 'Dashboard',
     headerMode: 'none',
   }
 );

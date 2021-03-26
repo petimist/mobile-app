@@ -68,7 +68,7 @@ const LoginScreen = ({ navigation }: Props) => {
             </Image>
           </ImageBackground>
 
-            <TextInput
+          <TextInput
               label="email"
               returnKeyType="next"
               value={email.value}
@@ -79,9 +79,9 @@ const LoginScreen = ({ navigation }: Props) => {
               autoCompleteType="email"
               textContentType="emailAddress"
               keyboardType="email-address"
-            />
+          />
 
-            <TextInput
+          <TextInput
               label="password"
               returnKeyType="done"
               value={password.value}
@@ -89,7 +89,7 @@ const LoginScreen = ({ navigation }: Props) => {
               error={!!password.error}
               errorText={password.error}
               secureTextEntry
-            />
+          />
 
           <PaperButton mode="contained" style={styles.btn_login} onPress={_onLoginPressed}>
             <Text style={styles.text2}> Login </Text>
