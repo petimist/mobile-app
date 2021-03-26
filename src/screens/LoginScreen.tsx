@@ -38,7 +38,7 @@ const LoginScreen = ({ navigation }: Props) => {
         }
         else {
           // console.log(JSON.parse(res));
-          navigation.navigate('Dashboard');
+          navigation.navigate('addAppointment');
         }
       })
     }

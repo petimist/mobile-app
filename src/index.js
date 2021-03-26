@@ -9,6 +9,9 @@ import {
 
 import PetScreen from './screens/PetScreen'
 import PetInfoScreen from './screens/PetInfoScreen'
+import addAppointment from './screens/addAppointment'
+import appointmentInfo from './screens/appointmentInfo'
+import editAppointment from './screens/editAppointment'
 
 const Router = createStackNavigator(
   {
@@ -17,6 +20,9 @@ const Router = createStackNavigator(
     Register,
     PetScreen,
     PetInfoScreen,
+    addAppointment,
+    appointmentInfo,
+    editAppointment
   },
   {
     initialRouteName: 'LoginScreen',
