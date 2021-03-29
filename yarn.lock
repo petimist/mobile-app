@@ -5967,6 +5967,18 @@ react-native-calculator@^0.5.2:
   resolved "https://registry.yarnpkg.com/react-native-calculator/-/react-native-calculator-0.5.2.tgz#e71f94f8601382b50a55ef21d5776c7f827b5ac3"
   integrity sha512-KAsWEP9a56r8RyORudx+YGvMhTYdIK4eJ2Gcps1Yu6r1OszFziaKASDnvlFN8uTOFwAwGGsacj8cMJtV3D8hQA==
 
+react-native-card-list@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-card-list/-/react-native-card-list-0.1.0.tgz#4ebcd81b2f25b39edcb6f508494c374edc75c203"
+  integrity sha1-TrzYGy8ls57ctvUISUw3Ttx1wgM=
+  dependencies:
+    prop-types "^15.6.0"
+
+react-native-dialog-input@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-dialog-input/-/react-native-dialog-input-1.0.8.tgz#6813d3b158bbb85d83a94310f38695d9f2b02682"
+  integrity sha512-W9YNMt6r+rUUMDEkOR1WMuGfSJw97ujB8H1xp8TjJTOnYVSlsf4aEP6t+J8tVk3XZaDcTawXgDjxH6E1WVWRog==
+
 react-native-gesture-handler@^1.10.1:
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.10.1.tgz#e7a93a5bc516338bc24a57b3312043dc00489377"
