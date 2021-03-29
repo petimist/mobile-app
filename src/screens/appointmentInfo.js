@@ -13,7 +13,7 @@ class appointmentInfo extends Component {
 
     this.state = {
       isLoading: true,
-      petArr: []
+      appArr: []
     }
 
   }
@@ -33,17 +33,23 @@ class appointmentInfo extends Component {
   }
 
   getCollection = (querySnapShot) => {
-    const petArr = [];
+    const appArr = [];
     querySnapShot.forEach((res) => {
-      const { name } = res.data();
-      petArr.push({
+      const { date } = res.data();
+      const { time } = res.data();
+      const { vet } = res.data();
+      const { todo } = res.data();
+      appArr.push({
         key: res.id,
         res,
-        name,
+        date,
+        time,
+        vet,
+        todo,
       })
     })
     this.setState({
-      petArr,
+      appArr,
       isLoading: false
     })
   }
@@ -62,10 +68,10 @@ class appointmentInfo extends Component {
     return (
       <View style={styles.container}>
 
-        { this.state.petArr.map((item, key) => (
+        { this.state.appArr.map((item, key) => (
           <Text key={item.key}
             onPress={() => this.props.navigation.navigate('editAppointment', {id: item.key})}
-            style={styles.TextStyle}> { item.name}  </Text>)
+            style={styles.TextStyle}> { item.todo}  </Text>)
         )}
       </View>
     )

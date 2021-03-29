@@ -12,7 +12,10 @@ class editAppointment extends Component {
 
         this.state = {
             isLoading: true,
-            name: '',
+            date: '',
+            time: '',
+            vet: '',
+            todo: '',
         }
 
     }
@@ -29,7 +32,10 @@ class editAppointment extends Component {
 
     saveEdit = () => {
         this.userRef.collection('appointment').doc(this.getId()).set({
-            name: this.state.name,
+            date: this.state.date,
+            time: this.state.time,
+            vet: this.state.vet,
+            todo: this.state.todo,
         })
         .then(() => {
             console.log("Document successfully written!");
@@ -55,7 +61,10 @@ class editAppointment extends Component {
             if (doc.exists) {
                 // console.log("Document data:", doc.data());
                 this.setState({
-                    name: doc.data().name,
+                    date: doc.data().date,
+                    time: doc.data().time,
+                    vet: doc.data().vet,
+                    todo: doc.data().todo,
                     isLoading: false
                 })
             } else {

@@ -12,7 +12,10 @@ class addAppointment extends Component {
     this.userRef = db.collection("users").doc(currentUser().uid)
 
     this.state = {
-      name: "",
+      date: '',
+      time: '',
+      vet: '',
+      todo: '',
       isLoading: false
     }
 
@@ -35,14 +38,20 @@ class addAppointment extends Component {
       .then((docRef) => {
         console.log("Document written with ID: ", docRef.id);
         this.setState({
-          name: '',
+          date: '',
+          time: '',
+          vet: '',
+          todo: '',
           isLoading: false
         });
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
         this.setState({
-          name: '',
+          date: '',
+          time: '',
+          vet: '',
+          todo: '',
           isLoading: false
         });
       });
