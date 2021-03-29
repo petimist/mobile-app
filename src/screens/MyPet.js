@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, {Component, memo, useState} from 'react'
 import {Button, Button as PaperButton, Dialog, Paragraph, Portal, Card, Title} from 'react-native-paper';
 import {ImageBackground, StyleSheet, ScrollView, ActivityIndicator, View, Text, TextInput, Alert} from 'react-native'
 import { db } from '../plugins/firebase'
@@ -298,4 +298,4 @@ const styles = StyleSheet.create({
     marginLeft: 30,
   }
 })
-export default MyPet
+export default memo(MyPet)

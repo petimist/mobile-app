@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component, memo} from 'react'
 import {
     StyleSheet,
     ActivityIndicator,
@@ -188,4 +188,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default PetIEditScreen
+export default memo(PetIEditScreen)

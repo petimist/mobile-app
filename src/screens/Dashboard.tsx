@@ -56,8 +56,8 @@ const Dashboard = ({ navigation }: Props) => {
               ></Image>
 
               <Image
-                  style={styles.image_logo}
-                  source={{ uri: "https://media.tenor.com/images/b6816283f39bdc3b46c80a122a603456/tenor.gif"}}
+                  style={{height: 100, width: 450, marginBottom: 20,}}
+                  source={require('../assets/DogRuning.gif')}
               >
               </Image>
 
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         resizeMode: "cover",
+        justifyContent: "center",
     },
     container: {
         flex: 1,
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     text: {
         color: "black",
         fontSize: 52,
-        marginTop: 80,
+        marginTop: 20,
         marginBottom: 20,
         fontWeight: "bold",
         textAlign: "center",
@@ -145,12 +146,6 @@ const styles = StyleSheet.create({
         marginLeft: 50,
         marginRight: 50,
         marginTop: 10,
-    },
-    image_logo:{
-        width: 100,
-        height: 100,
-        marginLeft: 40,
-        marginTop: 30,
     },
 })
 
