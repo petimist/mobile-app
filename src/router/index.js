@@ -1,7 +1,7 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import PetInfoScreen from "../screens/PetInfoScreen";
+import PetIEditScreen from "../screens/PetIEditScreen";
 
 import {
     Homepage,
@@ -20,7 +20,7 @@ const Router = createStackNavigator(
     Register,
       Dashboard,
       Appointment,
-      PetInfoScreen
+      PetInfoScreen: PetIEditScreen
   },
   {
     initialRouteName: 'Dashboard',

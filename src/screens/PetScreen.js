@@ -36,10 +36,14 @@ class PetScreen extends Component {
     const petArr = [];
     querySnapShot.forEach((res) => {
       const { name } = res.data();
+      const { birthday } = res.data();
+      const { species } = res.data();
       petArr.push({
         key: res.id,
         res,
         name,
+        birthday,
+        species,
       })
     })
     this.setState({

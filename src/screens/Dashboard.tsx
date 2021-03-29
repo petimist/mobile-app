@@ -1,8 +1,9 @@
 import React, { memo } from 'react';
 import { Navigation } from '../types';
-import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
-import {Appbar, Button as PaperButton, Dialog, Paragraph, Portal} from 'react-native-paper';
-
+import {Button, Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {Appbar, Button as PaperButton, Dialog, IconButton, Paragraph, Portal} from 'react-native-paper';
+import {Icon} from "react-native-paper/lib/typescript/components/List/List";
+import {loggingOut} from "../services/auth";
 
 type Props = {
   navigation: Navigation;
@@ -26,29 +27,39 @@ const Dashboard = ({ navigation }: Props) => {
         navigation.navigate('Appointment')
     }
 
-    const [visible, setVisible] = React.useState(false);
+    const signOut = () => {
+        loggingOut().then(() => {
+            navigation.navigate('Homepage')
+        })
+    }
 
-    const showDialog = () => setVisible(true);
 
-    const hideDialog = () => setVisible(false);
 
   return (
       <View style={styles.container}>
           <ImageBackground source={image} style={styles.image}>
-              <Text style={{marginTop: 50, marginLeft: 135}}> This is dashboard</Text>
+              <Text style={styles.text}>Welcome to Petimist!</Text>
+              <Text style={styles.text1}>
+                  ..... There are three options for you .....
+              </Text>
+              <Text style={styles.text2}> 1. You can click on the dog's icon to navigate to your pets. </Text>
+              <Text style={styles.text2}> 2. You can click on the calendar icon to navigate to your appointment. </Text>
+              <Text style={styles.text2}> 3. You can click on the logout button to logout. </Text>
 
-              <PaperButton onPress={showDialog}>Show Dialog</PaperButton>
-              <Portal>
-                  <Dialog visible={visible} onDismiss={hideDialog}>
-                      <Dialog.Title>Alert</Dialog.Title>
-                      <Dialog.Content>
-                          <Paragraph>This is simple dialog</Paragraph>
-                      </Dialog.Content>
-                      <Dialog.Actions>
-                          <PaperButton onPress={hideDialog}>Done</PaperButton>
-                      </Dialog.Actions>
-                  </Dialog>
-              </Portal>
+              <PaperButton mode="outlined" style={styles.btn_logout} icon={require('../assets/round_create_black_18dp.png')} color="black"  onPress={signOut}>
+                  <Text style={{fontSize: 20}}> logout </Text>
+              </PaperButton>
+
+              <Image
+                  style={styles.image_heart}
+                  source={{uri: "https://diaryofsarita.files.wordpress.com/2015/01/01508-language2bseparator.png?w=1400"}}
+              ></Image>
+
+              <Image
+                  style={styles.image_logo}
+                  source={{ uri: "https://media.tenor.com/images/b6816283f39bdc3b46c80a122a603456/tenor.gif"}}
+              >
+              </Image>
 
           </ImageBackground>
           <Appbar style={styles.bottom}>
@@ -93,7 +104,54 @@ const styles = StyleSheet.create({
         marginLeft:50,
         marginBottom: 20,
         marginTop: 10,
-    }
+    },
+    text: {
+        color: "black",
+        fontSize: 52,
+        marginTop: 80,
+        marginBottom: 20,
+        fontWeight: "bold",
+        textAlign: "center",
+    },
+    text1: {
+        color: "black",
+        fontSize: 20,
+        marginBottom: 20,
+        fontWeight: "bold",
+        textAlign: "center",
+    },
+    text2: {
+        color: "black",
+        fontSize: 16,
+        marginLeft: 15,
+        marginRight: 15,
+        marginBottom: 20,
+        marginTop: 20,
+    },
+    btn_logout:{
+        width: 200,
+        height: 60,
+        marginTop: 20,
+        marginLeft: 105,
+        borderRadius: 30,
+        justifyContent: "center",
+        backgroundColor: "#FFD180",
+        borderColor: "black",
+        borderWidth: 2,
+    },
+    image_heart: {
+        width: 300,
+        height: 100,
+        marginLeft: 50,
+        marginRight: 50,
+        marginTop: 10,
+    },
+    image_logo:{
+        width: 100,
+        height: 100,
+        marginLeft: 40,
+        marginTop: 30,
+    },
 })
 
 export default memo(Dashboard);
