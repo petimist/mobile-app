@@ -114,6 +114,7 @@ class MyPet extends Component {
     return (
         <View style={styles.container}>
           <ImageBackground source={image} style={styles.image}>
+            <Text style={styles.textHeader}> These are your pets: </Text>
             <View style={styles.view}>
             <ScrollView>
               { this.state.petArr.map((pet, key) => (
@@ -128,7 +129,7 @@ class MyPet extends Component {
                           <List.Item style={{backgroundColor:"white", borderRadius:20, borderWidth: 1, marginBottom:5, width:330}} title={"Pet's species: " + pet.species} ></List.Item>
                           <Button
                               style={{textColor:"black", borderWidth: 1}}
-                              onPress={() => this.props.navigation.navigate('PetInfoScreen', {id: pet.key})}>
+                              onPress={() => this.props.navigation.navigate('PetIEditScreen', {id: pet.key})}>
                             <Text style={{color:'black'}}> EDIT </Text>
                           </Button>
                         </List.Accordion>
@@ -299,6 +300,13 @@ const styles = StyleSheet.create({
     height: 550,
     width: 350,
     marginLeft: 30,
-  }
+  },
+  textHeader: {
+    color: "black",
+    fontSize: 22,
+    marginTop: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
 })
 export default memo(MyPet)

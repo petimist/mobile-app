@@ -2,7 +2,7 @@ import React, { memo, useState } from 'react';
 import TextInput from '../components/TextInput';
 import { Navigation } from '../types';
 import {Button as PaperButton, IconButton} from 'react-native-paper';
-import {Image, ImageBackground, StyleSheet, Text, View} from "react-native";
+import {Dimensions, Image, ImageBackground, StyleSheet, Text, View} from "react-native";
 import { emailValidator, passwordValidator } from '../core/utils';
 import { registration } from '../services/auth.js';
 import { Alert } from "react-native";
@@ -65,7 +65,7 @@ const RegisterScreen = ({ navigation }: Props) => {
                 <IconButton
                     icon={require('../assets/baseline_west_black_18dp.png')}
                     size={30}
-                    style={{marginRight: 350, marginTop: 10}}
+                    style={{marginRight: "80%", marginTop: "20%"}}
                     onPress={toHomePressed}
                 >
                 </IconButton>
@@ -130,10 +130,15 @@ const RegisterScreen = ({ navigation }: Props) => {
     );
 };
 
+const screenWidth = Dimensions.get('screen').width;
+const screenHeight = Dimensions.get('screen').height;
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "column",
+        width: screenWidth,
+        height: screenHeight,
     },
 
     image: {
@@ -141,6 +146,8 @@ const styles = StyleSheet.create({
         resizeMode: "cover",
         justifyContent: "center",
         alignItems: 'center',
+        width: screenWidth,
+        height: screenHeight,
     },
 
     image_logo:{
@@ -153,23 +160,22 @@ const styles = StyleSheet.create({
     image2:{
         width: 180,
         height: 180,
-        marginTop: 10,
     },
 
     btn_login:{
-        width: 310,
+        width: screenWidth * 0.75,
         height: 60,
         borderRadius: 30,
-        marginTop: 20,
+        marginTop: "4%",
         justifyContent: "center",
         backgroundColor: "#FFD180",
     },
 
     btn_back_to_login:{
-        width: 310,
+        width: screenWidth * 0.75,
         height: 60,
         borderRadius: 30,
-        marginTop: 20,
+        marginTop: "4%",
         marginBottom: 90,
         justifyContent: "center",
         backgroundColor: "#FFD180",

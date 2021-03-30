@@ -42,6 +42,7 @@ const Dashboard = ({ navigation }: Props) => {
               <Text style={styles.text1}>
                   ..... There are three options for you .....
               </Text>
+
               <Text style={styles.text2}> 1. You can click on the dog's icon to navigate to your pets. </Text>
               <Text style={styles.text2}> 2. You can click on the calendar icon to navigate to your appointment. </Text>
               <Text style={styles.text2}> 3. You can click on the logout button to logout. </Text>
@@ -127,8 +128,7 @@ const styles = StyleSheet.create({
     text2: {
         color: "black",
         fontSize: 16,
-        marginLeft: 15,
-        marginRight: 15,
+        marginLeft: 10,
         marginBottom: 20,
         marginTop: 20,
     },

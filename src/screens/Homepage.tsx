@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Button as PaperButton } from 'react-native-paper';
 import { Navigation } from '../types';
-import {Image, ImageBackground, StyleSheet, Text, View} from "react-native";
+import {Dimensions, Image, ImageBackground, StyleSheet, Text, View} from "react-native";
 
 type Props = {
     navigation: Navigation;
@@ -41,16 +41,23 @@ const Homepage = ({ navigation }: Props) => {
     )
 };
 
+const screenWidth = Dimensions.get('screen').width;
+const screenHeight = Dimensions.get('screen').height;
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "column",
+        width: screenWidth,
+        height: screenHeight,
     },
     image: {
         flex: 1,
         resizeMode: "cover",
         justifyContent: "center",
         alignItems: 'center',
+        width: screenWidth,
+        height: screenHeight,
     },
     text: {
         color: "black",

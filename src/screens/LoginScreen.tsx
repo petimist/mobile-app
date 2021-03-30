@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, Image, ImageBackground, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Button as PaperButton, IconButton} from 'react-native-paper';
 import TextInput from '../components/TextInput';
 import { theme } from '../core/theme';
@@ -51,12 +51,12 @@ const LoginScreen = ({ navigation }: Props) => {
   };
 
   return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <ImageBackground source={image} style={styles.image}>
           <IconButton
               icon={require('../assets/baseline_west_black_18dp.png')}
               size={30}
-              style={{marginRight: 350}}
+              style={{marginRight: "80%"}}
               onPress={toHomePressed}
           >
           </IconButton>
@@ -116,29 +116,35 @@ const LoginScreen = ({ navigation }: Props) => {
           ></Image>
         </ImageBackground>
 
-      </View>
+      </ScrollView>
   );
 };
+
+const screenWidth = Dimensions.get('screen').width;
+const screenHeight = Dimensions.get('screen').height;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    width: screenWidth,
+    height: screenHeight,
+    flexDirection: 'column',
   },
 
   image_heart: {
     width: 300,
-    height: 100,
-    marginLeft: 50,
-    marginRight: 50,
-    marginTop: 10,
+    height: "6%",
+    marginLeft: "50%",
+    marginRight: "50%",
+    marginTop: "3%",
   },
 
   image: {
     flex: 1,
-    resizeMode: "cover",
     justifyContent: "center",
     alignItems: 'center',
+    width: screenWidth,
+    height: screenHeight,
   },
 
   text: {
@@ -203,28 +209,28 @@ const styles = StyleSheet.create({
   },
 
   btn_login:{
-    width: 310,
+    width: screenWidth * 0.75,
     height: 60,
     borderRadius: 30,
-    marginTop: 20,
+    marginTop: "4%",
     justifyContent: "center",
     backgroundColor: "#FFD180",
   },
 
   btn_facebook:{
-    width: 310,
+    width: screenWidth * 0.75,
     height: 60,
     borderRadius: 30,
-    marginTop: 20,
+    marginTop: "4%",
     justifyContent: "center",
     backgroundColor: "#076fe6",
   },
 
   btn_google:{
-    width: 310,
+    width: screenWidth * 0.75,
     height: 60,
     borderRadius: 30,
-    marginTop: 20,
+    marginTop: "4%",
     justifyContent: "center",
     backgroundColor: "#ffffff",
   },
