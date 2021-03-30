@@ -23,7 +23,7 @@ const Router = createStackNavigator(
       PetInfoScreen: PetIEditScreen
   },
   {
-    initialRouteName: 'Dashboard',
+    initialRouteName: 'MyPet',
     headerMode: 'none',
   }
 );

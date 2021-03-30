@@ -119,13 +119,13 @@ class MyPet extends Component {
               { this.state.petArr.map((pet, key) => (
                       // <Card style={styles.card} icon="dog" onPress={() => this.props.navigation.navigate('PetIEditScreen', {id: pet.key})}>
                         <List.Accordion
-                            style={{backgroundColor:"#FFD180", borderRadius:"30", marginBottom:10, borderWidth: 3}}
+                            style={{backgroundColor:"#FFD180", borderRadius:30, marginBottom:10, borderWidth: 3, width:330}}
                             title={pet.name}
                             theme={{ colors: { text: 'black', primary: 'black' } }}
                         >
-                          <List.Item style={{backgroundColor:"white", borderRadius:20, borderWidth: 1, marginBottom:5}} title={"Pet's name: " + pet.name} ></List.Item>
-                          <List.Item style={{backgroundColor:"white", borderRadius:20, borderWidth: 1, marginBottom:5}} title={"Pet's birthday: " + pet.birthday} ></List.Item>
-                          <List.Item style={{backgroundColor:"white", borderRadius:20, borderWidth: 1, marginBottom:5}} title={"Pet's species: " + pet.species} ></List.Item>
+                          <List.Item style={{backgroundColor:"white", borderRadius:20, borderWidth: 1, marginBottom:5, width:330}} title={"Pet's name: " + pet.name} ></List.Item>
+                          <List.Item style={{backgroundColor:"white", borderRadius:20, borderWidth: 1, marginBottom:5, width:330}} title={"Pet's birthday: " + pet.birthday} ></List.Item>
+                          <List.Item style={{backgroundColor:"white", borderRadius:20, borderWidth: 1, marginBottom:5, width:330}} title={"Pet's species: " + pet.species} ></List.Item>
                           <Button
                               style={{textColor:"black", borderWidth: 1}}
                               onPress={() => this.props.navigation.navigate('PetInfoScreen', {id: pet.key})}>
@@ -137,11 +137,12 @@ class MyPet extends Component {
             </ScrollView>
 
             </View>
+
             <PaperButton mode="outline" style={styles.btnADD} icon="plus" color="black" onPress={this.showDialog}>
               <Text style={styles.text}> ADD PET </Text>
             </PaperButton>
 
-            <Portal>
+            <Portal style={{justifyContent: "center"}}>
             <Dialog style={{backgroundColor:"#ffe7bb"}} visible={this.state.visible} onDismiss={this.hideDialog}>
               <Dialog.Title>Please fill out the form below</Dialog.Title>
               <Dialog.Content>
@@ -165,26 +166,27 @@ class MyPet extends Component {
                 </TextInputD>
               </Dialog.Content>
               <Dialog.Actions>
+
                 <PaperButton mode='outline' style={styles.btn} onPress={this.createPet} >
                   <Text style={styles.text1}> add </Text>
                 </PaperButton>
                 <PaperButton style={styles.btn1} onPress={this.hideDialog}>
                   <Text style={styles.text1}> cancel </Text>
                 </PaperButton>
+
               </Dialog.Actions>
             </Dialog>
             </Portal>
 
+            <Appbar style={styles.bottom}>
+              <Appbar.Action style={styles.dog} icon="dog" size={40} onPress={() => this.props.navigation.navigate('MyPet')} />
+
+              <Appbar.Action style={styles.home} icon="home" size={40} onPress={() => this.props.navigation.navigate('Dashboard')}/>
+
+              <Appbar.Action style={styles.calendar} icon="calendar" size={40} onPress={() => this.props.navigation.navigate('Appointment')} />
+            </Appbar>
+
           </ImageBackground>
-
-
-          <Appbar style={styles.bottom}>
-            <Appbar.Action style={styles.dog} icon="dog" size={40} onPress={() => this.props.navigation.navigate('MyPet')} />
-
-            <Appbar.Action style={styles.home} icon="home" size={40} onPress={() => this.props.navigation.navigate('Dashboard')}/>
-
-            <Appbar.Action style={styles.calendar} icon="calendar" size={40} onPress={() => this.props.navigation.navigate('Appointment')} />
-          </Appbar>
         </View>
     )
   }
@@ -207,6 +209,8 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     resizeMode: "cover",
+    justifyContent: "center",
+    alignItems: "center"
   },
   bottom: {
     position: 'absolute',
@@ -255,8 +259,7 @@ const styles = StyleSheet.create({
     width: 210,
     height: 60,
     borderRadius: 30,
-    marginTop: 20,
-    marginLeft: 100,
+    marginBottom: 60,
     justifyContent: "center",
     backgroundColor: "#FFD180",
     borderWidth: 2,
@@ -292,8 +295,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   view:{
-    marginTop: 60,
-    height: 650,
+    marginTop: 40,
+    height: 550,
     width: 350,
     marginLeft: 30,
   }

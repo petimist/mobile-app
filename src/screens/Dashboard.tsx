@@ -61,14 +61,16 @@ const Dashboard = ({ navigation }: Props) => {
               >
               </Image>
 
+              <Appbar style={styles.bottom}>
+                  <Appbar.Action style={styles.dog} icon="dog"  size={40} onPress={toMyPet} />
+
+                  <Appbar.Action style={styles.home} icon="home" size={40} onPress={toHomePressed}/>
+
+                  <Appbar.Action style={styles.calendar} icon="calendar" size={40} onPress={toAppointment} />
+              </Appbar>
+
           </ImageBackground>
-          <Appbar style={styles.bottom}>
-              <Appbar.Action style={styles.dog} icon="dog"  size={40} onPress={toMyPet} />
 
-              <Appbar.Action style={styles.home} icon="home" size={40} onPress={toHomePressed}/>
-
-              <Appbar.Action style={styles.calendar} icon="calendar" size={40} onPress={toAppointment} />
-          </Appbar>
       </View>
   )
 };
@@ -78,6 +80,7 @@ const styles = StyleSheet.create({
         flex: 1,
         resizeMode: "cover",
         justifyContent: "center",
+        alignItems: "center",
     },
     container: {
         flex: 1,
@@ -133,7 +136,6 @@ const styles = StyleSheet.create({
         width: 200,
         height: 60,
         marginTop: 20,
-        marginLeft: 105,
         borderRadius: 30,
         justifyContent: "center",
         backgroundColor: "#FFD180",
