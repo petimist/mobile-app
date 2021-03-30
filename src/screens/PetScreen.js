@@ -36,10 +36,14 @@ class PetScreen extends Component {
     const petArr = [];
     querySnapShot.forEach((res) => {
       const { name } = res.data();
+      const { birthday } = res.data();
+      const { species } = res.data();
       petArr.push({
         key: res.id,
         res,
         name,
+        birthday,
+        species,
       })
     })
     this.setState({
@@ -61,11 +65,10 @@ class PetScreen extends Component {
 
     return (
       <View style={styles.container}>
-
-        { this.state.petArr.map((item, key) => (
-          <Text key={item.key}
+        { this.state.petArr.map((pet, key) => (
+          <Text key={pet.key}
             onPress={() => this.props.navigation.navigate('PetInfoScreen', {id: item.key})}
-            style={styles.TextStyle}> { item.name}  </Text>)
+            > { pet.name}  </Text>)
         )}
       </View>
     )
@@ -86,4 +89,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 })
+
 export default PetScreen

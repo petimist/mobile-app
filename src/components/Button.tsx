@@ -5,15 +5,12 @@ import { theme } from '../core/theme';
 
 type Props = React.ComponentProps<typeof PaperButton>;
 
-const Button = ({ mode, style, children, ...props }: Props) => (
+const Button = ({ style, children, ...props }: Props) => (
   <PaperButton
     style={[
       styles.button,
-      mode === 'outlined' && { backgroundColor: theme.colors.surface },
-      style,
     ]}
     labelStyle={styles.text}
-    mode={mode}
     {...props}
   >
     {children}

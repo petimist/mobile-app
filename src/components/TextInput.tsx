@@ -9,9 +9,10 @@ const TextInput = ({ errorText, ...props }: Props) => (
   <View style={styles.container}>
     <Input
       style={styles.input}
-      selectionColor={theme.colors.primary}
-      underlineColor="transparent"
-      mode="outlined"
+      selectionColor="black"
+      underlineColor="black"
+      mode="flat"
+      theme={{ colors: { text: 'black', primary: '#FF7878' } }}
       {...props}
     />
     {errorText ? <Text style={styles.error}>{errorText}</Text> : null}
@@ -24,9 +25,12 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   input: {
-    backgroundColor: theme.colors.surface,
+    marginLeft: 50,
+    marginRight: 55,
+    backgroundColor: null,
   },
   error: {
+    marginLeft: 57,
     fontSize: 14,
     color: theme.colors.error,
     paddingHorizontal: 4,
