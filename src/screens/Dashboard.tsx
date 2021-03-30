@@ -42,6 +42,7 @@ const Dashboard = ({ navigation }: Props) => {
               <Text style={styles.text1}>
                   ..... There are three options for you .....
               </Text>
+
               <Text style={styles.text2}> 1. You can click on the dog's icon to navigate to your pets. </Text>
               <Text style={styles.text2}> 2. You can click on the calendar icon to navigate to your appointment. </Text>
               <Text style={styles.text2}> 3. You can click on the logout button to logout. </Text>
@@ -56,19 +57,21 @@ const Dashboard = ({ navigation }: Props) => {
               ></Image>
 
               <Image
-                  style={styles.image_logo}
-                  source={{ uri: "https://media.tenor.com/images/b6816283f39bdc3b46c80a122a603456/tenor.gif"}}
+                  style={{height: 100, width: 450, marginBottom: 20,}}
+                  source={require('../assets/DogRuning.gif')}
               >
               </Image>
 
+              <Appbar style={styles.bottom}>
+                  <Appbar.Action style={styles.dog} icon="dog"  size={40} onPress={toMyPet} />
+
+                  <Appbar.Action style={styles.home} icon="home" size={40} onPress={toHomePressed}/>
+
+                  <Appbar.Action style={styles.calendar} icon="calendar" size={40} onPress={toAppointment} />
+              </Appbar>
+
           </ImageBackground>
-          <Appbar style={styles.bottom}>
-              <Appbar.Action style={styles.dog} icon="dog"  size={40} onPress={toMyPet} />
 
-              <Appbar.Action style={styles.home} icon="home" size={40} onPress={toHomePressed}/>
-
-              <Appbar.Action style={styles.calendar} icon="calendar" size={40} onPress={toAppointment} />
-          </Appbar>
       </View>
   )
 };
@@ -77,6 +80,8 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         resizeMode: "cover",
+        justifyContent: "center",
+        alignItems: "center",
     },
     container: {
         flex: 1,
@@ -108,7 +113,7 @@ const styles = StyleSheet.create({
     text: {
         color: "black",
         fontSize: 52,
-        marginTop: 80,
+        marginTop: 20,
         marginBottom: 20,
         fontWeight: "bold",
         textAlign: "center",
@@ -123,8 +128,7 @@ const styles = StyleSheet.create({
     text2: {
         color: "black",
         fontSize: 16,
-        marginLeft: 15,
-        marginRight: 15,
+        marginLeft: 10,
         marginBottom: 20,
         marginTop: 20,
     },
@@ -132,7 +136,6 @@ const styles = StyleSheet.create({
         width: 200,
         height: 60,
         marginTop: 20,
-        marginLeft: 105,
         borderRadius: 30,
         justifyContent: "center",
         backgroundColor: "#FFD180",
@@ -145,12 +148,6 @@ const styles = StyleSheet.create({
         marginLeft: 50,
         marginRight: 50,
         marginTop: 10,
-    },
-    image_logo:{
-        width: 100,
-        height: 100,
-        marginLeft: 40,
-        marginTop: 30,
     },
 })
 

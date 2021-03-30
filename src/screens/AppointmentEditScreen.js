@@ -1,32 +1,32 @@
-import React, {Component, memo} from 'react'
+import React, { Component } from 'react'
 import {
     StyleSheet,
+    ScrollView,
     ActivityIndicator,
     View,
     Text,
     Button,
+    TextInput,
     ImageBackground,
     Image
 } from 'react-native'
-import TextInputD from '../components/TextInputDialoct';
 import { db } from '../plugins/firebase'
-import { Button as PaperButton }from 'react-native-paper'
 import {currentUser} from '../services/auth'
-
+import TextInputD from "../components/TextInputDialoct";
+import {Button as PaperButton} from "react-native-paper";
 
 const image = { uri:"https://image.freepik.com/free-photo/abstract-blur-light-gradient-pink-soft-pastel-yellow-wallpaper-background_7636-1347.jpg" };
 
-class PetIEditScreen extends Component {
+class editAppointment extends Component {
     constructor() {
         super();
-
         this.userRef = db.collection("users").doc(currentUser().uid)
-
         this.state = {
             isLoading: true,
-            name: '',
-            birthday: '',
-            species: '',
+            date: '',
+            time: '',
+            vet: '',
+            todo: '',
         }
 
     }
@@ -42,38 +42,40 @@ class PetIEditScreen extends Component {
     }
 
     saveEdit = () => {
-        this.userRef.collection('pets').doc(this.getId()).set({
-            name: this.state.name,
-            birthday: this.state.birthday,
-            species: this.state.species,
+        this.userRef.collection('appointment').doc(this.getId()).set({
+            date: this.state.date,
+            time: this.state.time,
+            vet: this.state.vet,
+            todo: this.state.todo,
         })
-        .then(() => {
-            console.log("Document successfully written!");
-            this.props.navigation.navigate('MyPet')
-        })
-        .catch((error) => {
-            console.error("Error writing document: ", error);
-        });
+            .then(() => {
+                console.log("Document successfully written!");
+                this.props.navigation.navigate('Appointment')
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+            });
     }
 
-    deletePet = () => {
-        this.userRef.collection('pets').doc(this.getId()).delete().then(() => {
+    deleteAppointment = () => {
+        this.userRef.collection('appointment').doc(this.getId()).delete().then(() => {
             console.log("Document successfully deleted!");
-            this.props.navigation.navigate('MyPet')
+            this.props.navigation.navigate('Appointment')
         }).catch((error) => {
             console.error("Error removing document: ", error);
         });
     }
 
     componentDidMount() {
-        var docRef = this.userRef.collection('pets').doc(this.getId());
+        var docRef = this.userRef.collection('appointment').doc(this.getId());
         docRef.get().then((doc) => {
             if (doc.exists) {
                 // console.log("Document data:", doc.data());
                 this.setState({
-                    name: doc.data().name,
-                    birthday: doc.data().birthday,
-                    species: doc.data().species,
+                    date: doc.data().date,
+                    time: doc.data().time,
+                    vet: doc.data().vet,
+                    todo: doc.data().todo,
                     isLoading: false
                 })
             } else {
@@ -103,27 +105,32 @@ class PetIEditScreen extends Component {
                         >
                         </Image>
                     </ImageBackground>
-                    <Text style={styles.text}>Please Edit Your Pets!</Text>
+                    <Text style={styles.text}>Please Edit Your Appointment!</Text>
                     <TextInputD
-                        label="name"
-                        value={this.state.name}
-                        onChangeText={(val) => this.inputValueUpdate(val, 'name')}
+                        label="Todo"
+                        value={this.state.todo}
+                        onChangeText={(val) => this.inputValueUpdate(val, 'todo')}
                     ></TextInputD>
                     <TextInputD
-                        label="birthday"
-                        value={this.state.birthday}
-                        onChangeText={(val) => this.inputValueUpdate(val, 'birthday')}
+                        label="Date"
+                        value={this.state.date}
+                        onChangeText={(val) => this.inputValueUpdate(val, 'date')}
                     ></TextInputD>
                     <TextInputD
-                        label="species"
-                        value={this.state.species}
-                        onChangeText={(val) => this.inputValueUpdate(val, 'species')}
+                        label="Time"
+                        value={this.state.time}
+                        onChangeText={(val) => this.inputValueUpdate(val, 'time')}
+                    ></TextInputD>
+                    <TextInputD
+                        label="Vet"
+                        value={this.state.vet}
+                        onChangeText={(val) => this.inputValueUpdate(val, 'vet')}
                     ></TextInputD>
                     <PaperButton style={styles.btnEdit} onPress={this.saveEdit}>
                         <Text style={styles.text1}> confirm edit </Text>
                     </PaperButton>
-                    <PaperButton style={styles.btnEdit} onPress={this.deletePet}>
-                        <Text style={styles.text1}> delete your pet  (T T)</Text>
+                    <PaperButton style={styles.btnEdit} onPress={this.deleteAppointment}>
+                        <Text style={styles.text1}> delete you appointment (T T)</Text>
                     </PaperButton>
                 </ImageBackground>
             </View>
@@ -153,21 +160,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     image2:{
-        width: 280,
-        height: 280,
+        width: 180,
+        height: 180,
     },
     text: {
         color: "black",
-        fontSize: 32,
+        fontSize: 22,
         marginTop: 20,
         marginBottom: 20,
         fontWeight: "bold",
         textAlign: "center",
     },
     image_logo:{
-        width: 200,
-        height: 200,
-        marginLeft: 30,
+        width: 120,
+        height: 120,
+        marginLeft: 23,
         marginTop: 20,
     },
     btnEdit:{
@@ -188,4 +195,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default memo(PetIEditScreen)
+export default editAppointment
