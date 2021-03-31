@@ -2,19 +2,32 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-import {APIKEY, AUTHDOMAIN, PROJECTID} from "@env"
+import {
+  REACT_NATIVE_APIKEY,
+  REACT_NATIVE_AUTHDOMAIN,
+  REACT_NATIVE_PROJECTID,
+  REACT_NATIVE_DBURL,
+  REACT_NATIVE_STORAGEBUCKET,
+  REACT_NATIVE_MESSAGINGSENDERID,
+  REACT_NATIVE_APPID,
+  REACT_NATIVE_MEASUREMENTID,
+} from '@env';
 
 // Initialize Firebase
-console.log(APIKEY, AUTHDOMAIN, PROJECTID)
+console.log(
+  REACT_NATIVE_APIKEY,
+  REACT_NATIVE_AUTHDOMAIN,
+  REACT_NATIVE_PROJECTID
+);
 const firebaseConfig = {
-  apiKey: 'AIzaSyCXn2U-MVtTL5HveA1c5OwjfXt3Wl3FdD0',
-  authDomain: 'petimist-2021.firebaseapp.com',
-  databaseURL: 'https://petimist-2021-default-rtdb.firebaseio.com',
-  projectId: 'petimist-2021',
-  storageBucket: 'petimist-2021.appspot.com',
-  messagingSenderId: '593747444736',
-  appId: '1:593747444736:web:bbb01d9d916bb25a18c4e5',
-  measurementId: 'G-874BSFE9N9',
+  apiKey: REACT_NATIVE_APIKEY,
+  authDomain: REACT_NATIVE_AUTHDOMAIN,
+  databaseURL: REACT_NATIVE_DBURL,
+  projectId: REACT_NATIVE_PROJECTID,
+  storageBucket: REACT_NATIVE_STORAGEBUCKET,
+  messagingSenderId: REACT_NATIVE_MESSAGINGSENDERID,
+  appId: REACT_NATIVE_APPID,
+  measurementId: REACT_NATIVE_MEASUREMENTID,
 };
 
 // Your web app's Firebase configuration
