@@ -95,9 +95,10 @@ const LoginScreen = ({ navigation }: Props) => {
             <Text style={styles.text2}> Login </Text>
           </PaperButton>
 
-          <Text style={styles.text3}> ----------- or connected with ----------- </Text>
+          {/* TODO: Connect to google auth and facebook auth */}
+          {/* <Text style={styles.text3}> ----------- or connected with ----------- </Text> */}
 
-          <PaperButton mode="contained" style={styles.btn_facebook} onPress={_onLoginPressed}>
+          {/* <PaperButton mode="contained" style={styles.btn_facebook} onPress={_onLoginPressed}>
             <Text style={styles.text_facebook}> Facebook </Text>
           </PaperButton>
 
@@ -108,7 +109,7 @@ const LoginScreen = ({ navigation }: Props) => {
             <Text style={styles.text_blue}>g</Text>
             <Text style={styles.text_green}>l</Text>
             <Text style={styles.text_red}>e</Text>
-          </PaperButton>
+          </PaperButton> */}
 
           <Image
               style={styles.image_heart}

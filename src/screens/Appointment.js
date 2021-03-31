@@ -125,6 +125,7 @@ class Appointment extends Component {
                                     style={{backgroundColor:"#FFD180",borderWidth: 3, width:330}}
                                     title={item.todo}
                                     theme={{ colors: { text: 'black', primary: 'black' } }}
+                                    key={item.key}
                                 >
                                     <List.Item style={{backgroundColor:"white", borderWidth: 1, width:330}} title={"Todo: " + item.todo} ></List.Item>
                                     <List.Item style={{backgroundColor:"white", borderWidth: 1, width:330}} title={"Date: " + item.date} ></List.Item>

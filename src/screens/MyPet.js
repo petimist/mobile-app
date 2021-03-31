@@ -123,6 +123,7 @@ class MyPet extends Component {
                             style={{backgroundColor:"#FFD180", borderRadius:30, marginBottom:10, borderWidth: 3, width:330}}
                             title={pet.name}
                             theme={{ colors: { text: 'black', primary: 'black' } }}
+                            key={pet.key}
                         >
                           <List.Item style={{backgroundColor:"white", borderRadius:20, borderWidth: 1, marginBottom:5, width:330}} title={"Pet's name: " + pet.name} ></List.Item>
                           <List.Item style={{backgroundColor:"white", borderRadius:20, borderWidth: 1, marginBottom:5, width:330}} title={"Pet's birthday: " + pet.birthday} ></List.Item>
