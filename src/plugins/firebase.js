@@ -1,11 +1,11 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-import config from '../../config.js';
-// require('dotenv').config();
-// import 'dotenv/config';
+
+import {APIKEY, AUTHDOMAIN, PROJECTID} from "@env"
 
 // Initialize Firebase
+console.log(APIKEY, AUTHDOMAIN, PROJECTID)
 const firebaseConfig = {
   apiKey: 'AIzaSyCXn2U-MVtTL5HveA1c5OwjfXt3Wl3FdD0',
   authDomain: 'petimist-2021.firebaseapp.com',
