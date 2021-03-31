@@ -1,20 +1,33 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-// require('dotenv').config();
+
+import {
+  REACT_NATIVE_APIKEY,
+  REACT_NATIVE_AUTHDOMAIN,
+  REACT_NATIVE_PROJECTID,
+  REACT_NATIVE_DBURL,
+  REACT_NATIVE_STORAGEBUCKET,
+  REACT_NATIVE_MESSAGINGSENDERID,
+  REACT_NATIVE_APPID,
+  REACT_NATIVE_MEASUREMENTID,
+} from '@env';
 
 // Initialize Firebase
+console.log(
+  REACT_NATIVE_APIKEY,
+  REACT_NATIVE_AUTHDOMAIN,
+  REACT_NATIVE_PROJECTID
+);
 const firebaseConfig = {
-  apiKey: "AIzaSyCXn2U-MVtTL5HveA1c5OwjfXt3Wl3FdD0",
-    authDomain: "petimist-2021.firebaseapp.com",
-    projectId: "petimist-2021"
-  // apiKey: process.env.APIKEY,
-  // authDomain: process.env.AUTHDOMAIN,
-  // projectId: process.env.PROJECTID,
-  // storageBucket: process.env.STORAGEBUCKET,
-  // messagingSenderId: process.env.MESSAGINGSENDERID,
-  // appId: process.env.APPID,
-  // measurementId: process.env.MEASUREMENTID,
+  apiKey: REACT_NATIVE_APIKEY,
+  authDomain: REACT_NATIVE_AUTHDOMAIN,
+  databaseURL: REACT_NATIVE_DBURL,
+  projectId: REACT_NATIVE_PROJECTID,
+  storageBucket: REACT_NATIVE_STORAGEBUCKET,
+  messagingSenderId: REACT_NATIVE_MESSAGINGSENDERID,
+  appId: REACT_NATIVE_APPID,
+  measurementId: REACT_NATIVE_MEASUREMENTID,
 };
 
 // Your web app's Firebase configuration
@@ -23,12 +36,13 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-firebase.getCurrentUser = () => new Promise((resolve, reject) => {
-  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    unsubscribe();
-    resolve(user);
-  }, reject);
-});
+firebase.getCurrentUser = () =>
+  new Promise((resolve, reject) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      unsubscribe();
+      resolve(user);
+    }, reject);
+  });
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log('logged in', user);
