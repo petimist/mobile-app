@@ -4,7 +4,7 @@ import { db } from '../plugins/firebase'
 import { currentUser } from '../services/auth'
 
 
-class PetScreen extends Component {
+class appointmentInfo extends Component {
   constructor() {
 
     super();
@@ -13,7 +13,7 @@ class PetScreen extends Component {
 
     this.state = {
       isLoading: true,
-      petArr: []
+      appArr: []
     }
 
   }
@@ -25,7 +25,7 @@ class PetScreen extends Component {
   }
 
   componentDidMount() {
-    this.unsubscribe = this.userRef.collection('pets').onSnapshot(this.getCollection);
+    this.unsubscribe = this.userRef.collection('appointment').onSnapshot(this.getCollection);
   }
 
   componentWillUnmount() {
@@ -33,21 +33,23 @@ class PetScreen extends Component {
   }
 
   getCollection = (querySnapShot) => {
-    const petArr = [];
+    const appArr = [];
     querySnapShot.forEach((res) => {
-      const { name } = res.data();
-      const { birthday } = res.data();
-      const { species } = res.data();
-      petArr.push({
+      const { date } = res.data();
+      const { time } = res.data();
+      const { vet } = res.data();
+      const { todo } = res.data();
+      appArr.push({
         key: res.id,
         res,
-        name,
-        birthday,
-        species,
+        date,
+        time,
+        vet,
+        todo,
       })
     })
     this.setState({
-      petArr,
+      appArr,
       isLoading: false
     })
   }
@@ -65,10 +67,11 @@ class PetScreen extends Component {
 
     return (
       <View style={styles.container}>
-        { this.state.petArr.map((pet, key) => (
-          <Text key={pet.key}
-            onPress={() => this.props.navigation.navigate('PetInfoScreen', {id: item.key})}
-            > { pet.name}  </Text>)
+
+        { this.state.appArr.map((item, key) => (
+          <Text key={item.key}
+            onPress={() => this.props.navigation.navigate('editAppointment', {id: item.key})}
+            style={styles.TextStyle}> { item.todo}  </Text>)
         )}
       </View>
     )
@@ -89,5 +92,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 })
-
-export default PetScreen
+export default appointmentInfo

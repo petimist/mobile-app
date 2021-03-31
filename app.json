@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "React Native Paper Login Template",
-    "slug": "react-native-paper-login-template",
+    "name": "Petimist-mobile",
+    "slug": "Petimist-mobile",
     "privacy": "public",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/dog.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
