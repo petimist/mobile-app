@@ -1,16 +1,17 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { APIKEY, AUTHDOMAIN, PROJECTID} from 'react-native-dotenv'
 // require('dotenv').config();
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCXn2U-MVtTL5HveA1c5OwjfXt3Wl3FdD0",
-    authDomain: "petimist-2021.firebaseapp.com",
-    projectId: "petimist-2021"
-  // apiKey: process.env.APIKEY,
-  // authDomain: process.env.AUTHDOMAIN,
-  // projectId: process.env.PROJECTID,
+  // apiKey: "AIzaSyCXn2U-MVtTL5HveA1c5OwjfXt3Wl3FdD0",
+  //   authDomain: "petimist-2021.firebaseapp.com",
+  //   projectId: "petimist-2021"
+  apiKey: APIKEY,
+  authDomain: AUTHDOMAIN,
+  projectId: PROJECTID,
   // storageBucket: process.env.STORAGEBUCKET,
   // messagingSenderId: process.env.MESSAGINGSENDERID,
   // appId: process.env.APPID,
